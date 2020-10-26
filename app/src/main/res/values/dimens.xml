@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Text-->
+    <dimen name="title_text_size">22sp</dimen>
+    <dimen name="subtitle_text_size">18sp</dimen>
+    <dimen name="heavier_text_size">16sp</dimen>
+    <dimen name="lighter_text_size">12sp</dimen>
+    <dimen name="small_text_size">10sp</dimen>
+
+    <!--Distance-->
+    <dimen name="farther_margin_size">20dp</dimen>
+    <dimen name="margin_size">14dp</dimen>
+    <dimen name="closer_margin_size">6dp</dimen>
+
+    <!--Size of View-->
+    <dimen name="small_view_size">2dp</dimen>
+    <dimen name="tool_bar_size">52dp</dimen>
+</resources>

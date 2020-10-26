@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2020 xuexiangjys(xuexiangjys@163.com)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.xuexiang.xui.widget.edittext.verify.VerifyCodeEditText
+            android:id="@+id/vcet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="30dp"
+            app:vcet_is_pwd="true"
+            app:vcet_number="6"
+            app:vcet_pwd_radius="10dp"
+            app:vcet_text_color="#000000"
+            app:vcet_width="40dp" />
+
+        <!--        <com.xuexiang.xui.widget.alpha.XUIAlphaButton-->
+        <!--            android:id="@+id/btn_clear"-->
+        <!--            style="@style/Button.Primary.wrap"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:layout_marginTop="?attr/xui_config_content_spacing_vertical"-->
+        <!--            android:text="清空" />-->
+
+        <com.andrognito.patternlockview.PatternLockView
+            android:id="@+id/patter_lock_view"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            app:aspectRatio="square"
+            app:aspectRatioEnabled="true"
+            app:dotAnimationDuration="150"
+            app:normalStateColor="@color/Morandi_black"
+            app:correctStateColor="@color/Morandi_green"
+            app:wrongStateColor="@color/Morandi_red"
+            app:dotCount="3" />
+
+        <ImageView
+            android:id="@+id/biometric_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_fingerprint" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_bill_dayoverview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_dayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/closer_margin_size"
+        android:layout_marginTop="@dimen/closer_margin_size"
+        android:layout_marginEnd="@dimen/closer_margin_size"
+        android:layout_marginBottom="@dimen/closer_margin_size"
+        android:text="今日：9月23日"
+        android:textColor="@color/Morandi_gray"
+        android:textSize="@dimen/lighter_text_size" />
+
+    <TextView
+        android:id="@+id/tv_moneyOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="@dimen/closer_margin_size"
+        android:layout_marginTop="@dimen/closer_margin_size"
+        android:layout_marginEnd="@dimen/closer_margin_size"
+        android:layout_marginBottom="@dimen/closer_margin_size"
+        android:text="支出：230"
+        android:textColor="@color/Morandi__light_pink"
+        android:textSize="@dimen/lighter_text_size" />
+
+    <TextView
+        android:id="@+id/tv_moneyIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/closer_margin_size"
+        android:layout_marginTop="@dimen/closer_margin_size"
+        android:layout_marginEnd="@dimen/closer_margin_size"
+        android:layout_marginBottom="@dimen/closer_margin_size"
+        android:layout_toLeftOf="@id/tv_moneyOut"
+        android:text="收入：70"
+        android:textColor="@color/Morandi_blue"
+        android:textSize="@dimen/lighter_text_size" />
+
+    <TextView
+        android:id="@+id/tv_moneyDiff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/closer_margin_size"
+        android:layout_marginTop="@dimen/closer_margin_size"
+        android:layout_marginEnd="@dimen/closer_margin_size"
+        android:layout_marginBottom="@dimen/closer_margin_size"
+        android:layout_toLeftOf="@id/tv_moneyIn"
+        android:text="结余：160"
+        android:textColor="@color/Morandi_sam_green"
+        android:textSize="@dimen/lighter_text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Morandi_white_gray" />
+
+</RelativeLayout>

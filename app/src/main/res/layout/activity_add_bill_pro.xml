@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Morandi_black"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_size"
+            app:srcCompat="@drawable/ic_return"
+            app:tint="@color/Morandi_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_size"
+            android:layout_marginTop="@dimen/margin_size"
+            android:layout_marginEnd="@dimen/margin_size"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:layout_weight="1"
+            android:text="添加账单"
+            android:textColor="@color/Morandi_white"
+            android:textSize="@dimen/title_text_size" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/etMoney"
+                android:inputType="numberSigned|numberDecimal"
+                style="@style/EditInfoItem.Leundo"
+                app:sEditTextButtonType="none"
+                app:sEditTextHint="0"
+                app:sLeftTextString="金额"
+                />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvTime"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="时间"
+                app:sRightTextString="" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvCategory"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="收支类别"
+                app:sRightTextString="支出" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvType"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="账单类别"
+                app:sRightTextString="餐饮 / 外卖" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvAccount"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="账户"
+                app:sRightTextString="微信" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvCurrency"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="币种"
+                app:sRightTextString="CNY" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvMember"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="成员"
+                app:sRightTextString="父亲" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/tvFirm"
+                style="@style/InfoItem.Account"
+                app:sLeftTextString="商家"
+                app:sRightTextString="欧亚声学" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/etItem"
+                style="@style/EditInfoItem.Leundo"
+                app:sEditTextButtonType="none"
+                app:sEditTextHint=""
+                app:sLeftTextString="项目" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btCommit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/closer_margin_size"
+            android:layout_weight="1"
+            android:background="@color/Morandi_light_rice"
+            android:text="修改" />
+
+        <Button
+            android:id="@+id/btDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/closer_margin_size"
+            android:layout_weight="1"
+            android:background="@color/Morandi__light_pink"
+            android:hapticFeedbackEnabled="false"
+            android:text="删除" />
+    </LinearLayout>
+
+
+</LinearLayout>

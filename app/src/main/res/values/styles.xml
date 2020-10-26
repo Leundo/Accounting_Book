@@ -1,0 +1,126 @@
+<resources>
+
+    <!-- 拓展主题 theme. -->
+    <style name="XUITheme" parent="XUIBaseTheme">
+        <!--设置默认窗口的动画样式-->
+        <item name="android:windowAnimationStyle">@style/WindowAnimStyle</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="XUITheme.Phone">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Morandi_black</item>
+        <item name="colorPrimaryDark">@color/Morandi_black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="xui_actionbar_height">?actionBarSize</item>
+        <item name="xui_actionbar_color">@color/Morandi_black</item>
+    </style>
+
+    <style name="AppTheme.Launch">
+        <item name="xui_config_color_splash_bg">@color/xui_config_color_white</item>
+        <item name="xui_config_app_logo_bottom">@dimen/xui_config_app_logo_bottom</item>
+        <item name="xui_config_company_logo_bottom">@dimen/xui_config_company_logo_bottom</item>
+        <item name="android:windowBackground">@drawable/xui_config_bg_splash</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--窗体背景，这个背景能在第一时间显示, 避免启动时白屏，黑屏问题-->
+    <style name="AppTheme.Launch.App">
+        <!--注意修改图标-->
+        <item name="xui_config_splash_app_logo">@drawable/ic_splash_app_logo_xui</item>
+        <item name="xui_config_splash_company_logo">@drawable/ic_splash_company_logo</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--DialogTheme，用于将Activity作为Dialog的主题-->
+    <style name="DialogTheme" parent="XUITheme.Phone">
+        <!--设置dialog的背景，此处为系统给定的透明值-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--无标题-->
+        <item name="android:windowNoTitle">true</item>　　　　　
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否有覆盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <!--设置Activity出现方式-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!--背景是否模糊显示-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <!--leundo的supertextview的editable style-->
+    <style name="EditInfoItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="sLeftViewMarginLeft">22dp</item>
+        <item name="sRightViewMarginRight">0dp</item>
+        <item name="sRightIconMarginRight">0dp</item>
+        <item name="sLeftIconMarginLeft">0dp</item>
+        <item name="sLeftTextSize">?attr/xui_config_size_content_text</item>
+        <item name="sLeftTextColor">@color/xui_config_color_title_text</item>
+        <item name="sCenterTextColor">@color/xui_config_color_black</item>
+        <item name="sRightTextColor">@color/xui_config_color_explain_text</item>
+        <item name="sRightTextSize">?attr/xui_config_size_content_text</item>
+    </style>
+
+    <style name="EditInfoItem.Leundo">
+        <item name="sLeftViewWidth">110dp</item>
+        <item name="sLeftViewGravity">left_center</item>
+        <item name="sCenterViewGravity">left_center</item>
+        <item name="sCenterViewMarginLeft">25dp</item>
+        <item name="sRightTextSize">?attr/xui_config_size_content_text</item>
+        <item name="sRightViewMarginRight">10dp</item>
+        <item name="sEnableEdit">true</item>
+    </style>
+
+<!--    <style name="FlowSettingTheme" parent="XUITheme.Phone">-->
+<!--        &lt;!&ndash;设置dialog的背景，此处为系统给定的透明值&ndash;&gt;-->
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+<!--        &lt;!&ndash;Dialog的windowFrame框为无&ndash;&gt;-->
+<!--        <item name="android:windowFrame">@null</item>-->
+<!--        &lt;!&ndash;无标题&ndash;&gt;-->
+<!--        <item name="android:windowNoTitle">true</item>　　　　　-->
+<!--        &lt;!&ndash;是否浮现在activity之上&ndash;&gt;-->
+<!--        <item name="android:windowIsFloating">false</item>-->
+<!--        &lt;!&ndash;是否半透明&ndash;&gt;-->
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+<!--        &lt;!&ndash;是否有覆盖&ndash;&gt;-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        &lt;!&ndash;设置Activity出现方式&ndash;&gt;-->
+<!--        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>-->
+<!--        &lt;!&ndash;背景是否模糊显示&ndash;&gt;-->
+<!--        <item name="android:backgroundDimEnabled">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="FlowSettingTheme" parent="XUITheme.Phone">-->
+<!--        <item name="android:windowAnimationStyle">@style/FlowSettingAnimationActivity</item>-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="FlowSettingAnimationActivity" parent="@android:style/Animation.Activity" >-->
+<!--        <item name="android:activityOpenEnterAnimation">@anim/flow_setting_up_in</item>-->
+<!--        <item name="android:activityOpenExitAnimation">@anim/flow_setting_up_out</item>-->
+<!--        <item name="android:activityCloseEnterAnimation">@anim/flow_setting_down_in</item>-->
+<!--        <item name="android:activityCloseExitAnimation">@anim/flow_setting_down_out</item>-->
+<!--        -->
+<!--        -->
+
+<!--        <item name="android:taskToBackEnterAnimation">@anim/flow_setting_down_in</item>-->
+<!--        <item name="android:taskToBackExitAnimation">@anim/flow_setting_down_out</item>-->
+<!--        <item name="android:taskCloseEnterAnimation">@anim/flow_setting_down_in</item>-->
+<!--        <item name="android:taskCloseExitAnimation">@anim/flow_setting_down_out</item>-->
+
+<!--    </style>-->
+
+
+
+
+
+</resources>
