@@ -56,6 +56,7 @@ public class CustomizationSuperActivity extends AppCompatActivity {
     SuperTextView type1TextView;
     SuperTextView nameTextView;
     SuperTextView inputTextView;
+    SuperTextView inputType2TextView;
 
     OptionsPickerView showFunc;
     OptionsPickerView showAttr;
@@ -91,6 +92,7 @@ public class CustomizationSuperActivity extends AppCompatActivity {
         type1TextView = (SuperTextView) findViewById(R.id.type1_textview);
         nameTextView = (SuperTextView) findViewById(R.id.name_textview);
         inputTextView = (SuperTextView) findViewById(R.id.input_textview);
+        inputType2TextView = (SuperTextView) findViewById(R.id.inputtype2_textview);
     }
 
     private void initSpuerTextViewListener() {
@@ -183,6 +185,7 @@ public class CustomizationSuperActivity extends AppCompatActivity {
                     return;
                 }
 
+
                 if (funcTextView.getRightString().equals("删除")) {
                     if (nameTextView.getRightString().equals("")) {
                         DialogLoader.getInstance().showTipDialog(
@@ -215,6 +218,15 @@ public class CustomizationSuperActivity extends AppCompatActivity {
                                 "确定");
                         return;
                     }
+
+                    if (attrTextView.getRightString().equals("一级类别") && inputType2TextView.getCenterEditValue().equals("")) {
+                        DialogLoader.getInstance().showTipDialog(
+                                CustomizationSuperActivity.this,
+                                "提示",
+                                "请输入初始二级类别的名称",
+                                "确定");
+                        return;
+                    }
                     
 
                     if (attrTextView.getRightString().equals("一级类别") && !PickIconModel.doPick) {
@@ -240,9 +252,41 @@ public class CustomizationSuperActivity extends AppCompatActivity {
         } else if (attrTextView.getRightString().equals("一级类别")) {
             billDao.deleteBillByType(nameTextView.getRightString());
             billDao.deleteType(nameTextView.getRightString());
+            showType1 = getShowType1PickerView();
         } else if (attrTextView.getRightString().equals("二级类别")) {
+            // 二级类别只有一个的情况
+            if (billDao.queryType(type1TextView.getRightString()).size() == 1) {
+                DialogLoader.getInstance().showConfirmDialog(
+                        CustomizationSuperActivity.this,
+                        "是否要删除二级类别？由于该二级类别对应的一级类别仅有它一个，因此一级类别也会被删除！",
+                        "确定",
+                        (dialog, which) -> {
+                            billDao.deleteBillByType(type1TextView.getRightString(), nameTextView.getRightString());
+                            billDao.deleteType(type1TextView.getRightString(), nameTextView.getRightString());
+                            billDao.deleteType(type1TextView.getRightString());
+                            dialog.dismiss();
+
+                            nameTextView.setRightString("");
+                            type1TextView.setRightString("");
+                            showType1 = getShowType1PickerView();
+                            refreshDataAndUI();
+                            DialogLoader.getInstance().showTipDialog(
+                                    CustomizationSuperActivity.this,
+                                    "提示",
+                                    "删除成功",
+                                    "确定");
+                        },
+                        "取消",
+                        (dialog, which) -> {
+                            dialog.dismiss();
+                        }
+                );
+                return;
+            }
+
             billDao.deleteBillByType(type1TextView.getRightString(), nameTextView.getRightString());
             billDao.deleteType(type1TextView.getRightString(), nameTextView.getRightString());
+
         } else if (attrTextView.getRightString().equals("成员")) {
             billDao.deleteBillByNumber(nameTextView.getRightString());
             billDao.deleteNumber(nameTextView.getRightString());
@@ -252,6 +296,8 @@ public class CustomizationSuperActivity extends AppCompatActivity {
         }
 
         nameTextView.setRightString("");
+        type1TextView.setRightString("");
+        refreshDataAndUI();
         DialogLoader.getInstance().showTipDialog(
                 CustomizationSuperActivity.this,
                 "提示",
@@ -273,8 +319,11 @@ public class CustomizationSuperActivity extends AppCompatActivity {
             if (billDao.insertType(inputTextView.getCenterEditValue()) == -1) {
                 showRepetitionDialog(inputTextView.getCenterEditValue(), "一级类别");
                 inputTextView.setCenterEditString("");
+                inputType2TextView.setCenterEditString("");
                 return;
             }
+            showType1 = getShowType1PickerView();
+            billDao.insertType(inputTextView.getCenterEditValue(), inputType2TextView.getCenterEditValue());
             billDao.insertTypeIcon(inputTextView.getCenterEditValue(), PickIconModel.iconResource[PickIconModel.pickResourceRow]);
             Bill.updateTypeIcon();
         } else if (attrTextView.getRightString().equals("二级类别")) {
@@ -296,7 +345,9 @@ public class CustomizationSuperActivity extends AppCompatActivity {
                 return;
             }
         }
+        refreshDataAndUI();
         inputTextView.setCenterEditString("");
+        inputType2TextView.setCenterEditString("");
         DialogLoader.getInstance().showTipDialog(
                 CustomizationSuperActivity.this,
                 "提示",
@@ -328,10 +379,13 @@ public class CustomizationSuperActivity extends AppCompatActivity {
     private void refreshDataAndUI() {
         showName = getShowNamePickerView(attrTextView.getRightString());
 
+
         if (attrTextView.getRightString().equals("一级类别") && funcTextView.getRightString().equals("添加")) {
             iconTextView.setVisibility(View.VISIBLE);
+            inputType2TextView.setVisibility(View.VISIBLE);
         } else {
             iconTextView.setVisibility(View.GONE);
+            inputType2TextView.setVisibility(View.GONE);
         }
         if (attrTextView.getRightString().equals("二级类别")) {
             type1TextView.setVisibility(View.VISIBLE);

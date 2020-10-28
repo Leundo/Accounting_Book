@@ -382,7 +382,7 @@ public class AddBillProActivity extends AppCompatActivity implements View.OnClic
                 //返回的分别是三个级别的选中位置
                 String tx = options1Member.get(options1);
 
-                if (options1 == 1) {
+                if (options1 == 0) {
                     bill.setNumber(null);
                 } else {
                     bill.setNumber(options1Member.get(options1));
@@ -469,7 +469,7 @@ public class AddBillProActivity extends AppCompatActivity implements View.OnClic
                 //返回的分别是三个级别的选中位置
                 String tx = options1Firm.get(options1);
 
-                if (options1 == 1) {
+                if (options1 == 0) {
                     bill.setFirm(null);
                 } else {
                     bill.setFirm(options1Firm.get(options1));

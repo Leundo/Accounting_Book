@@ -806,7 +806,7 @@ public class BillDao {
             db = billDBHelper.getWritableDatabase();
             num = db.delete(BillContract.TYPE_TABLE_NAME,
                     BillContract.TYPE_COLUMN_NAME_TITLE + " = ? AND " + BillContract.TYPE_COLUMN_NAME_LEVEL + " = ? AND " + BillContract.TYPE_COLUMN_NAME_FATHER + " = ? ",
-                    new String[]{type1Name, "2", type2Name});
+                    new String[]{type2Name, "2", type1Name});
 
         } catch (Exception e) {
             e.printStackTrace();

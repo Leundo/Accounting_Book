@@ -82,8 +82,15 @@
                 android:id="@+id/input_textview"
                 style="@style/EditInfoItem.Leundo"
                 app:sEditTextButtonType="none"
-                app:sEditTextHint="请输入自定义名称"
+                app:sEditTextHint="自定义名称"
                 app:sLeftTextString="名称" />
+
+            <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                android:id="@+id/inputtype2_textview"
+                style="@style/EditInfoItem.Leundo"
+                app:sEditTextButtonType="none"
+                app:sEditTextHint="初始二级类别的名称"
+                app:sLeftTextString="初始二级类别" />
 
 
         </LinearLayout>
